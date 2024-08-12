@@ -121,7 +121,7 @@ class RandomGenerator
       $faker->city,
       $faker->state,
       $faker->postcode,
-      self::employees(2, $faker->numberBetween(1, 10)),
+      self::employees(2, $faker->numberBetween(3, 6)),
       $faker->boolean,
       $faker->boolean
     );
@@ -155,7 +155,7 @@ class RandomGenerator
       $faker->name,
       $faker->numberBetween(10, 10000),
       $faker->randomNumber(),
-      self::restaurantLocations($faker->numberBetween(1, 10)),
+      self::restaurantLocations($faker->numberBetween(3, 5)),
       $faker->randomElement(['Italian', 'Mexican', 'American', 'Chinese', 'Japanese']),
       $faker->numberBetween(1, 1000),
       $faker->company

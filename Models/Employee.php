@@ -1,7 +1,8 @@
-<!-- User クラスを拡張 -->
 <?php
 
 namespace Models;
+
+// User クラスを拡張
 
 use DateTime;
 

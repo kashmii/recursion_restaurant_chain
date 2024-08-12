@@ -1,7 +1,7 @@
-<!-- Company クラスを拡張 -->
 <?php
-
 namespace Models;
+
+// Company クラスを拡張
 
 class RestaurantChain extends Company
 {
