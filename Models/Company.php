@@ -98,4 +98,20 @@ class Company
              - Founder: {$this->founder}
              - Total Employees: {$this->totalEmployees}";
   }
+
+  public function toArray()
+  {
+    return [
+      'name' => $this->name,
+      'foundingYear' => $this->foundingYear,
+      'description' => $this->description,
+      'website' => $this->website,
+      'phone' => $this->phone,
+      'industry' => $this->industry,
+      'ceo' => $this->ceo,
+      'isPubliclyTraded' => $this->isPubliclyTraded,
+      'founder' => $this->founder,
+      'totalEmployees' => $this->totalEmployees
+    ];
+  }
 }

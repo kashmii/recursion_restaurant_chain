@@ -127,4 +127,25 @@ class RestaurantChain extends Company
              - Number of Locations: {$this->numberOfLocations}
              - Parent Company: {$this->parentCompany}";
   }
+
+  public function toArray()
+  {
+    return [
+      'name' => $this->name,
+      'foundingYear' => $this->foundingYear,
+      'description' => $this->description,
+      'website' => $this->website,
+      'phone' => $this->phone,
+      'industry' => $this->industry,
+      'ceo' => $this->ceo,
+      'isPubliclyTraded' => $this->isPubliclyTraded,
+      'founder' => $this->founder,
+      'totalEmployees' => $this->totalEmployees,
+      'chainId' => $this->chainId,
+      'restaurantLocations' => $this->restaurantLocations,
+      'cuisineType' => $this->cuisineType,
+      'numberOfLocations' => $this->numberOfLocations,
+      'parentCompany' => $this->parentCompany
+    ];
+  }
 }

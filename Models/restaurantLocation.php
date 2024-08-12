@@ -85,4 +85,18 @@ class RestaurantLocation
              - Is Open: " . ($this->isOpen ? 'Yes' : 'No') . "
              - Has Drive Thru: " . ($this->hasDriveThru ? 'Yes' : 'No');
   }
+
+  public function toArray()
+  {
+    return [
+      'name' => $this->name,
+      'address' => $this->address,
+      'city' => $this->city,
+      'state' => $this->state,
+      'zipcode' => $this->zipcode,
+      'employees' => $this->employees,
+      'isOpen' => $this->isOpen,
+      'hasDriveThru' => $this->hasDriveThru
+    ];
+  }
 }

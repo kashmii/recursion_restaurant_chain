@@ -113,4 +113,23 @@ class Employee extends User
              - Start Date: {$this->startDate->format('Y-m-d')}
              - Awards: " . implode(', ', $this->awards);
   }
+
+  public function toArray()
+  {
+    return [
+      'id' => $this->id,
+      'firstName' => $this->firstName,
+      'lastName' => $this->lastName,
+      'email' => $this->email,
+      'phoneNumber' => $this->phoneNumber,
+      'address' => $this->address,
+      'birthDate' => $this->birthDate->format('Y-m-d'),
+      'membershipExpirationDate' => $this->membershipExpirationDate->format('Y-m-d'),
+      'role' => $this->role,
+      'jobTitle' => $this->jobTitle,
+      'salary' => $this->salary,
+      'startDate' => $this->startDate->format('Y-m-d'),
+      'awards' => $this->awards,
+    ];
+  }
 }
