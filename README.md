@@ -1,3 +1,1 @@
-# recursion_restaurant_chain_mockup
-# recursion_restaurant_chain_mockup
 # recursion_restaurant_chain

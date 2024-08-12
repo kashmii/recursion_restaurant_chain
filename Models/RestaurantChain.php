@@ -47,4 +47,26 @@ class RestaurantChain extends Company
     $this->numberOfLocations = $numberOfLocations;
     $this->parentCompany = $parentCompany;
   }
+
+  public function toString(): string
+  {
+    return sprintf(
+      "Name: %s\nFounding Year: %d\nDescription: %s\nWebsite: %s\nPhone: %s\nIndustry: %s\nCEO: %s\nIs Publicly Traded: %s\nFounder: %s\nTotal Employees: %d\nChain ID: %d\nRestaurant Locations: %s\nCuisine Type: %s\nNumber of Locations: %d\nParent Company: %s\n",
+      $this->name,
+      $this->foundingYear,
+      $this->description,
+      $this->website,
+      $this->phone,
+      $this->industry,
+      $this->ceo,
+      $this->isPubliclyTraded ? 'Yes' : 'No',
+      $this->founder,
+      $this->totalEmployees,
+      $this->chainId,
+      implode(', ', $this->restaurantLocations),
+      $this->cuisineType,
+      $this->numberOfLocations,
+      $this->parentCompany
+    );
+  }
 }

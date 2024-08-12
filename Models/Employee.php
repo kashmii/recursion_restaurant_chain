@@ -27,23 +27,42 @@ class Employee extends User
     float $salary,
     DateTime $startDate,
     array $awards
-    )
-    {
-      parent::__construct(
-        $id,
-        $firstName,
-        $lastName,
-        $email,
-        $password,
-        $phoneNumber,
-        $address,
-        $birthDate,
-        $membershipExpirationDate,
-        $role,
-      );
-      $this->jobTitle = $jobTitle;
-      $this->salary = $salary;
-      $this->startDate = $startDate;
-      $this->awards = $awards;
-    }
+  ) {
+    parent::__construct(
+      $id,
+      $firstName,
+      $lastName,
+      $email,
+      $password,
+      $phoneNumber,
+      $address,
+      $birthDate,
+      $membershipExpirationDate,
+      $role,
+    );
+    $this->jobTitle = $jobTitle;
+    $this->salary = $salary;
+    $this->startDate = $startDate;
+    $this->awards = $awards;
+  }
+
+  public function toString(): string
+  {
+    return sprintf(
+      "ID: %d\nFirst Name: %s\nLast Name: %s\nEmail: %s\nPhone Number: %s\nAddress: %s\nBirth Date: %s\nMembership Expiration Date: %s\nRole: %s\nJob Title: %s\nSalary: %.2f\nStart Date: %s\nAwards: %s\n",
+      $this->id,
+      $this->firstName,
+      $this->lastName,
+      $this->email,
+      $this->phoneNumber,
+      $this->address,
+      $this->birthDate->format('Y-m-d'),
+      $this->membershipExpirationDate->format('Y-m-d'),
+      $this->role,
+      $this->jobTitle,
+      $this->salary,
+      $this->startDate->format('Y-m-d'),
+      implode(', ', $this->awards)
+    );
+  }
 }

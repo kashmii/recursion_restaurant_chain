@@ -4,16 +4,16 @@ namespace Models;
 
 class Company
 {
-  private string $name;
-  private int $foundingYear;
-  private string $description;
-  private string $website;
-  private string $phone;
-  private string $industry;
-  private string $ceo;
-  private bool $isPubliclyTraded;
-  private string $founder;
-  private int $totalEmployees;
+  protected string $name;
+  protected int $foundingYear;
+  protected string $description;
+  protected string $website;
+  protected string $phone;
+  protected string $industry;
+  protected string $ceo;
+  protected bool $isPubliclyTraded;
+  protected string $founder;
+  protected int $totalEmployees;
 
   public function __construct(
     string $name,
@@ -38,4 +38,23 @@ class Company
     $this->founder = $founder;
     $this->totalEmployees = $totalEmployees;
   }
+
+  public function toString(): string
+  {
+    return sprintf(
+      "Name: %s\nFounding Year: %d\nDescription: %s\nWebsite: %s\nPhone: %s\nIndustry: %s\nCEO: %s\nIs Publicly Traded: %s\nFounder: %s\nTotal Employees: %d\n",
+      $this->name,
+      $this->foundingYear,
+      $this->description,
+      $this->website,
+      $this->phone,
+      $this->industry,
+      $this->ceo,
+      $this->isPubliclyTraded ? 'Yes' : 'No',
+      $this->founder,
+      $this->totalEmployees
+    );
+  }
 }
+
+
