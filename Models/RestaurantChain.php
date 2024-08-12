@@ -69,4 +69,43 @@ class RestaurantChain extends Company
       $this->parentCompany
     );
   }
+
+  public function toHTML()
+  {
+    return sprintf(
+      "
+      <div class='company-card'>
+          <h2>%s</h2>
+          <p>Founding Year: %d</p>
+          <p>Description: %s</p>
+          <p>Website: %s</p>
+          <p>Phone: %s</p>
+          <p>Industry: %s</p>
+          <p>CEO: %s</p>
+          <p>Is Publicly Traded: %s</p>
+          <p>Founder: %s</p>
+          <p>Total Employees: %d</p>
+          <p>Chain ID: %d</p>
+          <p>Restaurant Locations: %s</p>
+          <p>Cuisine Type: %s</p>
+          <p>Number of Locations: %d</p>
+          <p>Parent Company: %s</p>
+      </div>",
+      $this->name,
+      $this->foundingYear,
+      $this->description,
+      $this->website,
+      $this->phone,
+      $this->industry,
+      $this->ceo,
+      $this->isPubliclyTraded ? 'Yes' : 'No',
+      $this->founder,
+      $this->totalEmployees,
+      $this->chainId,
+      implode(', ', $this->restaurantLocations),
+      $this->cuisineType,
+      $this->numberOfLocations,
+      $this->parentCompany
+    );
+  }
 }

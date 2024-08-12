@@ -55,6 +55,33 @@ class Company
       $this->totalEmployees
     );
   }
+
+  public function toHTML()
+  {
+    return sprintf(
+      "
+    <div class='company-card'>
+        <h2>%s</h2>
+        <p>%s</p>
+        <p>%s</p>
+        <p>%s</p>
+        <p>%s</p>
+        <p>Industry: %s</p>
+        <p>CEO: %s</p>
+        <p>Is Publicly Traded: %s</p>
+        <p>Founder: %s</p>
+        <p>Total Employees: %d</p>
+        </div>",
+      $this->name,
+      $this->foundingYear,
+      $this->description,
+      $this->website,
+      $this->phone,
+      $this->industry,
+      $this->ceo,
+      $this->isPubliclyTraded ? 'Yes' : 'No',
+      $this->founder,
+      $this->totalEmployees
+    );
+  }
 }
-
-

@@ -48,4 +48,29 @@ class RestaurantLocation
       $this->hasDriveThru ? 'Yes' : 'No'
     );
   }
+
+  public function toHTML()
+  {
+    return sprintf(
+      "
+      <div class='restaurant-location-card'>
+          <h2>%s</h2>
+          <p>Address: %s</p>
+          <p>City: %s</p>
+          <p>State: %s</p>
+          <p>Zipcode: %s</p>
+          <p>Employees: %s</p>
+          <p>Is Open: %s</p>
+          <p>Has Drive Thru: %s</p>
+      </div>",
+      $this->name,
+      $this->address,
+      $this->city,
+      $this->state,
+      $this->zipcode,
+      implode(', ', $this->employees),
+      $this->isOpen ? 'Yes' : 'No',
+      $this->hasDriveThru ? 'Yes' : 'No'
+    );
+  }
 }

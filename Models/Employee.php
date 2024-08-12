@@ -65,4 +65,37 @@ class Employee extends User
       implode(', ', $this->awards)
     );
   }
+
+  public function toHTML()
+  {
+    return sprintf(
+      "
+    <div class='employee-card'>
+        <div class='avatar'>SAMPLE</div>
+        <h2>%s %s</h2>
+        <p>%s</p>
+        <p>%s</p>
+        <p>%s</p>
+        <p>Birth Date: %s</p>
+        <p>Membership Expiration Date: %s</p>
+        <p>Role: %s</p>
+        <p>Job Title: %s</p>
+        <p>Salary: %.2f</p>
+        <p>Start Date: %s</p>
+        <p>Awards: %s</p>
+    </div>",
+      $this->firstName,
+      $this->lastName,
+      $this->email,
+      $this->phoneNumber,
+      $this->address,
+      $this->birthDate->format('Y-m-d'),
+      $this->membershipExpirationDate->format('Y-m-d'),
+      $this->role,
+      $this->jobTitle,
+      $this->salary,
+      $this->startDate->format('Y-m-d'),
+      implode(', ', $this->awards)
+    );
+  }
 }
