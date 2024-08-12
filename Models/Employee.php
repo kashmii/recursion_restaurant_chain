@@ -98,4 +98,19 @@ class Employee extends User
       implode(', ', $this->awards)
     );
   }
+
+  public function toMarkdown()
+  {
+    return "## Employee: {$this->firstName} {$this->lastName}
+             - Email: {$this->email}
+             - Phone Number: {$this->phoneNumber}
+             - Address: {$this->address}
+             - Birth Date: {$this->birthDate->format('Y-m-d')}
+             - Membership Expiration Date: {$this->membershipExpirationDate->format('Y-m-d')}
+             - Role: {$this->role}
+             - Job Title: {$this->jobTitle}
+             - Salary: {$this->salary}
+             - Start Date: {$this->startDate->format('Y-m-d')}
+             - Awards: " . implode(', ', $this->awards);
+  }
 }

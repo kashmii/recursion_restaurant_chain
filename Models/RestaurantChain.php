@@ -108,4 +108,23 @@ class RestaurantChain extends Company
       $this->parentCompany
     );
   }
+
+  // - Restaurant Locations: {$this->restaurantLocations} の記述を削除した
+  public function toMarkdown()
+  {
+    return "## Company: {$this->name}
+             - Founding Year: {$this->foundingYear}
+             - Description: {$this->description}
+             - Website: {$this->website}
+             - Phone: {$this->phone}
+             - Industry: {$this->industry}
+             - CEO: {$this->ceo}
+             - Is Publicly Traded: {$this->isPubliclyTraded}
+             - Founder: {$this->founder}
+             - Total Employees: {$this->totalEmployees}
+             - Chain ID: {$this->chainId}
+             - Cuisine Type: {$this->cuisineType}
+             - Number of Locations: {$this->numberOfLocations}
+             - Parent Company: {$this->parentCompany}";
+  }
 }

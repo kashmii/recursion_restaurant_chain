@@ -84,4 +84,18 @@ class Company
       $this->totalEmployees
     );
   }
+
+  public function toMarkdown()
+  {
+    return "## Company: {$this->name}
+             - Founding Year: {$this->foundingYear}
+             - Description: {$this->description}
+             - Website: {$this->website}
+             - Phone: {$this->phone}
+             - Industry: {$this->industry}
+             - CEO: {$this->ceo}
+             - Is Publicly Traded: " . ($this->isPubliclyTraded ? 'Yes' : 'No') . "
+             - Founder: {$this->founder}
+             - Total Employees: {$this->totalEmployees}";
+  }
 }

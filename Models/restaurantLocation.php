@@ -73,4 +73,16 @@ class RestaurantLocation
       $this->hasDriveThru ? 'Yes' : 'No'
     );
   }
+
+  public function toMarkdown()
+  {
+    return "## Restaurant Location: {$this->name}
+             - Address: {$this->address}
+             - City: {$this->city}
+             - State: {$this->state}
+             - Zipcode: {$this->zipcode}
+             - Employees: " . implode(', ', $this->employees) . "
+             - Is Open: " . ($this->isOpen ? 'Yes' : 'No') . "
+             - Has Drive Thru: " . ($this->hasDriveThru ? 'Yes' : 'No');
+  }
 }
