@@ -34,6 +34,32 @@ class RestaurantLocation
     $this->hasDriveThru = $hasDriveThru;
   }
 
+  // toStringLimited メソッドを追加
+  // name, address, city, state, zipcode を表示
+  public function toStringLimited(): string
+  {
+    return sprintf(
+      "Name: %s,\nAddress: %s,\nCity: %s,\nState: %s,\nZipcode: %s\n",
+      $this->name,
+      $this->address,
+      $this->city,
+      $this->state,
+      $this->zipcode
+    );
+  }
+
+  // name を取得するメソッドを追加
+  public function getName(): string
+  {
+    return $this->name;
+  }
+
+  // employees のインスタンスの配列を取得するメソッドを追加
+  public function getEmployees(): array
+  {
+    return $this->employees;
+  }
+
   public function toString(): string
   {
     return sprintf(

@@ -1,4 +1,5 @@
 <?php
+
 namespace Models;
 
 // Company クラスを拡張
@@ -46,6 +47,18 @@ class RestaurantChain extends Company
     $this->cuisineType = $cuisineType;
     $this->numberOfLocations = $numberOfLocations;
     $this->parentCompany = $parentCompany;
+  }
+
+  // name を取得するメソッドを追加
+  public function getName(): string
+  {
+    return $this->name;
+  }
+
+  // restaurantLocations を取得するメソッドを追加
+  public function getRestaurantLocations(): array
+  {
+    return $this->restaurantLocations;
   }
 
   public function toString(): string

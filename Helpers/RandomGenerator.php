@@ -3,8 +3,6 @@
 namespace Helpers;
 
 use Faker\Factory;
-use Models\User;
-use Models\Company;
 use Models\Employee;
 use Models\RestaurantChain;
 use Models\RestaurantLocation;
@@ -12,69 +10,6 @@ use Models\RestaurantLocation;
 
 class RandomGenerator
 {
-  public static function user(): User
-  {
-    $faker = Factory::create();
-
-    return new User(
-      $faker->randomNumber(),
-      $faker->firstName(),
-      $faker->lastName(),
-      $faker->email,
-      $faker->password,
-      $faker->phoneNumber,
-      $faker->address,
-      $faker->dateTimeThisCentury,
-      $faker->dateTimeBetween('-10 years', '+20 years'),
-      $faker->randomElement(['admin', 'user', 'editor'])
-    );
-  }
-
-  public static function users(int $min, int $max): array
-  {
-    $faker = Factory::create();
-    $users = [];
-    $numOfUsers = $faker->numberBetween($min, $max);
-
-    for ($i = 0; $i < $numOfUsers; $i++) {
-      $users[] = self::user();
-    }
-
-    return $users;
-  }
-
-  public static function company(): Company
-  {
-    $faker = Factory::create();
-
-    return new Company(
-      $faker->company,
-      $faker->year,
-      $faker->sentence,
-      $faker->url,
-      $faker->phoneNumber,
-      $faker->randomElement(['Technology', 'Finance', 'Healthcare', 'Retail', 'Automotive']),
-      $faker->name,
-      $faker->boolean,
-      $faker->name,
-      $faker->numberBetween(10, 10000)
-    );
-  }
-
-  // 指定した数の company を作成
-  public static function companies(int $min, int $max): array
-  {
-    $faker = Factory::create();
-    $companies = [];
-    $numOfCompanies = $faker->numberBetween($min, $max);
-
-    for ($i = 0; $i < $numOfCompanies; $i++) {
-      $companies[] = self::company();
-    }
-
-    return $companies;
-  }
-
   public static function employee(): Employee
   {
     $faker = Factory::create();
@@ -121,7 +56,7 @@ class RandomGenerator
       $faker->city,
       $faker->state,
       $faker->postcode,
-      self::employees(2, $faker->numberBetween(3, 6)),
+      self::employees(2, $faker->numberBetween(1, 4)),
       $faker->boolean,
       $faker->boolean
     );
@@ -155,7 +90,7 @@ class RandomGenerator
       $faker->name,
       $faker->numberBetween(10, 10000),
       $faker->randomNumber(),
-      self::restaurantLocations($faker->numberBetween(3, 5)),
+      self::restaurantLocations($faker->numberBetween(2, 4)),
       $faker->randomElement(['Italian', 'Mexican', 'American', 'Chinese', 'Japanese']),
       $faker->numberBetween(1, 1000),
       $faker->company

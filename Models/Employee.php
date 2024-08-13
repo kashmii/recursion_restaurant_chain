@@ -47,6 +47,20 @@ class Employee extends User
     $this->awards = $awards;
   }
 
+  // toStringLimited メソッドを追加
+  // id, jobTitle, fullname, startdate を表示
+  public function toStringLimited(): string
+  {
+    return sprintf(
+      "ID: %d,\nJob Title: %s,\nFull Name: %s %s,\nStart Date: %s\n",
+      $this->id,
+      $this->jobTitle,
+      $this->firstName,
+      $this->lastName,
+      $this->startDate->format('Y-m-d')
+    );
+  }
+
   public function toString(): string
   {
     return sprintf(
