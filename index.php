@@ -8,16 +8,7 @@ require_once 'vendor/autoload.php';
 
 use Helpers\RandomGenerator;
 
-// クエリ文字列からパラメータを取得
-$min = $_GET['min'] ?? 5;
-$max = $_GET['max'] ?? 10;
-
-// パラメータが整数であることを確認
-$min = (int)$min;
-$max = (int)$max;
-
-// ユーザーの生成
-$users = RandomGenerator::users($min, $max);
+$restaurantChains = RandomGenerator::restaurantChains(3);
 ?>
 
 <!DOCTYPE html>
@@ -31,15 +22,42 @@ $users = RandomGenerator::users($min, $max);
 </head>
 
 <body>
-  <h1>User Profiles</h1>
-
-  <?php foreach ($users as $user): ?>
-    <div class="user-card">
-      <!-- ユーザー情報の表示 -->
-      <?php echo $user->toHTML(); ?>
-    </div>
-  <?php endforeach; ?>
-
+  <div class="container">
+    <!-- chain をループする -->
+    <?php foreach ($restaurantChains as $chain): ?>
+      <div class="chain">
+        <h1 class="chain-title">Restaurant Chain: <?php echo $chain->getName(); ?></h1>
+        <P>Restaurant Chain Information</P>
+        <!-- chain の locations をループして表示 -->
+        <?php $locations = $chain->getRestaurantLocations() ?>
+        <?php foreach ($locations as $location): ?>
+          <!-- location (information) -->
+          <div class="location-container">
+            <div class="location">
+              <hr class="employee-hr" />
+              <h4>
+                <?php echo $location->getName(); ?>
+              </h4>
+              <div>
+                Location: <?php echo $location->toStringLimited(); ?>
+              </div>
+              <h5>Employees:</h5>
+              <!-- Employees をループして表示 -->
+              <?php $employees = $location->getEmployees(); ?>
+              <div class="employee-container">
+                <?php foreach ($employees as $employee): ?>
+                  <div>
+                    <?php echo $employee->toStringLimited(); ?>
+                  </div>
+                <?php endforeach; ?>
+              </div>
+            </div>
+          </div>
+        <?php endforeach; ?>
+        <hr class="chain-hr" />
+      </div>
+    <?php endforeach; ?>
+  </div>
 </body>
 
 </html>

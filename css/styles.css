@@ -1,0 +1,32 @@
+.container {
+  margin: 0 60px;
+}
+
+.chain {
+  margin-top: 30px;
+}
+
+.chain-title {
+  text-align: center;
+}
+
+.location-container {
+  margin: 0 30px;
+}
+
+.employee-title {
+  margin: 20px 0;
+}
+
+.employee-container {
+  margin: 0 30px 30px;
+}
+
+.employee-hr {
+  color: aquamarine;
+}
+
+.chain-hr {
+  margin-top: 30px;
+  border: 2px solid #000;
+}
